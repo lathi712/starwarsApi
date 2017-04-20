@@ -5,13 +5,13 @@ Clone the project to any folder and start doing following things on that directo
 or You can download the project and do the following except 1 step.
 
 1.git clone https://github.com/lathi712/starwarsApi.git
-
+<br />
 2.npm init
-
+<br />
 3.npm install
-
+<br />
 4.node server.js
-
+<br />
 5.http://localhost:3000/api/people/
 
 Run this url to get all
