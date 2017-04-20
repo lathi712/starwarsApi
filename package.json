@@ -1,7 +1,7 @@
 {
   "name": "blogapp",
   "version": "1.0.0",
-  "description": "Blog in MEAN",
+  "description": "Star Wars API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

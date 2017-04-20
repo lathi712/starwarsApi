@@ -12,8 +12,8 @@ router.get('/api/characters',function (req,res) {
             if(error){
                 res.sendStatus(400)
             }else{
-                res.render('pages/index', { peoples : arr });
-                //res.json(arr);
+                //res.render('pages/index', { peoples : arr });
+                res.json(arr);
             }
         }else {
 
@@ -81,7 +81,7 @@ router.get('/api/planetresidents',function (req,res) {
         }else{
            // res.json(arr);
             //var x = JSON.parse(arr);
-            console.log(arr[0].name);
+
             res.json(arr.map(function (arrVal) {
                 var rObj = {};
                 rObj[arrVal.name] = arrVal.residents;
