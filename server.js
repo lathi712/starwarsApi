@@ -1,52 +1,19 @@
-var express = require('express');
-var app = express();
-var sortBy = require('sort-by')
+const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
+const ejs = require('ejs');
+const routes = require('./routes/index');
+const port = process.env.PORT || 3000;
 
-var swapi = require('swapi-node');
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
-// parse application/json
 app.use(bodyParser.json());
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-var name;
+
+app.use('/', routes);
 
 
-app.get('/api/people/:name',function (req,res) {
-    var name = req.params.name;
-    console.log(name);
-    swapi.get('http://swapi.co/api/people/?search='+name).then(function (result) {
-        res.json(result);
-    });
-});
-
-app.get('/api/people/',function (req,res) {
-
-    var sort = req.query.sort;
-    if(sort!=null){
-
-        swapi.get('http://swapi.co/api/people/?page=2&sort='+sort).then(function (result) {
-            var sorted = result.results.sort(sortBy(sort));
-            res.json(sorted);
-        });
-    }else{
-        swapi.get('http://swapi.co/api/people/').then(function (result) {
-            res.json(result);
-        });
-    }
-
-
-});
-
-app.get('/api/planetresidents/',function (req,res) {
-
-    swapi.get('http://swapi.co/api/planets/').then(function (result) {
-        res.json(result);
-
-    });
-});
-
-
-app.listen(3000,function () {
-    console.log('3000 running')
+app.listen(port,function () {
+    console.log('Server running on port',port);
 });

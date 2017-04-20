@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+    <% include ../partials/header.ejs %>
+
+
+<body>
+
+<br>
+<!--<%= JSON.stringify(planets) %>-->
+<table>
+    <% for(var i=0; i < planets.length; i++) { %>
+    <tr>
+        <td><%= planets[i].name %></td>
+        <td><%= planets[i].residents %></td>
+
+
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

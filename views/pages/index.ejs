@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/header.ejs %>
+
+
+<body>
+
+<br>
+<!--<%= JSON.stringify(peoples) %>-->
+<table>
+    <% for(var i=0; i < peoples.length; i++) { %>
+
+    <tr>
+        <td><%= peoples[i].name %></td>
+        <td><%= peoples[i].height %></td>
+        <td><%= peoples[i].mass %></td>
+
+    </tr>
+    <% } %>
+
+</table>
+</body>
+</html>
