@@ -39,8 +39,8 @@ router.get('/api/characters',function (req,res) {
         if(error){
             res.sendStatus(400)
         }else{
-         //   res.json(newArray);
-            res.render('pages/index', { peoples : newArray });
+           res.json(newArray);
+         //   res.render('pages/index', { peoples : newArray });
         }
 
     });
@@ -80,8 +80,14 @@ router.get('/api/planetresidents',function (req,res) {
             res.sendStatus(400)
         }else{
            // res.json(arr);
-            console.log(arr);
-            res.render('pages/planet', { planets : arr });
+            //var x = JSON.parse(arr);
+            console.log(arr[0].name);
+            res.json(arr.map(function (arrVal) {
+                var rObj = {};
+                rObj[arrVal.name] = arrVal.residents;
+                return rObj;
+            }));
+            //res.render('pages/planet', { planets : arr });
         }
     });
 });
