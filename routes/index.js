@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 
-router.get('/api/people',function (req,res) {
+router.get('/api/characters',function (req,res) {
     request('http://swapi.co/api/people/', function (error, response, body) {
         var bodyReq = JSON.parse(body);
         var arr = bodyReq.results;
@@ -48,7 +48,7 @@ router.get('/api/people',function (req,res) {
 
 
 
-router.get('/api/people/:name',function (req,res) {
+router.get('/api/characters/:name',function (req,res) {
     request('http://swapi.co/api/people/', function (error, response, body) {
         var bodyReq = JSON.parse(body);
         var name = req.params.name;
@@ -70,7 +70,7 @@ router.get('/api/people/:name',function (req,res) {
 
 
 
-router.get('/api/planets',function (req,res) {
+router.get('/api/planetresidents',function (req,res) {
     request('http://swapi.co/api/planets/', function (error, response, body) {
         var bodyReq = JSON.parse(body);
         var arr = bodyReq.results;
