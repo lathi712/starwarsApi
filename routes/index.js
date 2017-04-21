@@ -10,37 +10,39 @@ router.get('/api/characters',function (req,res) {
         var bodyReq = JSON.parse(body);
         var arr = bodyReq.results;
         var sort = req.query.sort;
-        for(var i=0;i<5;i++){
-            resArr.push(arr);
 
-        }
-        
-        function flatten(arr) {
-            var result = [];
-            var resultArr = function resultArr(arg) {
-                if (!Array.isArray(arg)) {
-                    result.push(arg);
-                } else {
-                    for (var a in arg) {
-
-                        resultArr(arg[a]);
-                    }
-                }
-            };
-            resultArr(arr);
-            return result;
-        }
-
-        pushArr = flatten(resArr);
 
         if(sort==null){
             if(error){
                 res.sendStatus(400)
             }else{
                 //res.render('pages/index', { peoples : arr });
-                res.json(pushArr);
+                res.json(arr);
             }
         }else {
+
+            for(var i=0;i<5;i++){
+                resArr.push(arr);
+
+            }
+
+            function flatten(arr) {
+                var result = [];
+                var resultArr = function resultArr(arg) {
+                    if (!Array.isArray(arg)) {
+                        result.push(arg);
+                    } else {
+                        for (var a in arg) {
+
+                            resultArr(arg[a]);
+                        }
+                    }
+                };
+                resultArr(arr);
+                return result;
+            }
+
+            pushArr = flatten(resArr);
 
             var newArray =[];
             if(sort==='name'){
