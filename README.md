@@ -1,27 +1,82 @@
-# starwarsApi
+# Star Wars API
 
-Please follow the steps to run the application
-Clone the project to any folder and start doing following things on that directory.
-or You can download the project and do the following except 1 step.
+A Node.js application that provides RESTful API endpoints to access Star Wars character and planet data.
 
-1.git clone https://github.com/lathi712/starwarsApi.git
-<br />
-2.npm init
-<br />
-3.npm install
-<br />
-4.node server.js
-<br />
-5.http://localhost:3000/api/people/
+## Features
 
-Run this url to get all
-http://localhost:3000/api/people/
+- **Character Data**: Access detailed information about Star Wars characters
+- **Planet Data**: Retrieve data about planets in the Star Wars universe
+- **Sorting Options**: Sort results by various attributes (height, mass, name)
+- **Search Functionality**: Find specific characters by name
 
-Run this to get single result based on the parameter passed
-http://localhost:3000/api/people/Luke Skywalker
+## Installation
 
-Run this url to get sorted results
-http://localhost:3000/api/people/?sort=height    //sort=mass and sort=name
+Follow these steps to get the application up and running:
 
-Run this url to get planets
-http://localhost:3000/api/planets/
+```bash
+# 1. Clone the repository
+git clone https://github.com/lathi712/starwarsApi.git
+
+# 2. Change to the project directory
+cd starwarsApi
+
+# 3. Initialize npm (if needed)
+npm init
+
+# 4. Install dependencies
+npm install
+
+# 5. Start the server
+node server.js
+```
+
+## API Endpoints
+
+### Characters
+
+- **Get all characters**: 
+  ```
+  GET http://localhost:3000/api/people/
+  ```
+
+- **Get character by name**: 
+  ```
+  GET http://localhost:3000/api/people/Luke Skywalker
+  ```
+
+- **Get sorted characters**: 
+  ```
+  GET http://localhost:3000/api/people/?sort=height
+  GET http://localhost:3000/api/people/?sort=mass
+  GET http://localhost:3000/api/people/?sort=name
+  ```
+
+### Planets
+
+- **Get all planets**: 
+  ```
+  GET http://localhost:3000/api/planets/
+  ```
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- Star Wars API data
+
+## Dependencies
+
+- Express
+- Axios (for API requests)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
+
+Created by Lathesh Karkera S
